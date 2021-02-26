@@ -9,4 +9,7 @@
 # 7. How would you solve it on a sheet of paper?
 
 
-Haskell book:http://learnyouahaskell.com/chapters
+Haskell book: http://learnyouahaskell.com/chapters
+Additional sources:
+lists: https://hackage.haskell.org/package/base-4.12.0.0/docs/Data-List.html
+characters/digits: https://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Char.html
