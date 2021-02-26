@@ -9,3 +9,4 @@
 # 7. How would you solve it on a sheet of paper?
 
 
+Haskell book:http://learnyouahaskell.com/chapters
