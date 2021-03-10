@@ -15,4 +15,4 @@ sumDigitsIter n =helper n 1
        | n < 10 = n
        |otherwise = helper (result*(mod n 10)) (div n 10)
        
-  --not okay
+  --not okay with test cases
