@@ -12,20 +12,11 @@ sumDivs n
   where 
       helper :: Int -> Int 
       helper currentDivisor
-       | currentDivisor == n = n--base -- currentDivisor
+       | currentDivisor == n = 0--base -- currentDivisor
        | mod n currentDivisor == 0 = currentDivisor + helper (currentDivisor +1)
        | otherwise = helper (currentDivisor +1)
 
 isPerfect :: Int -> Bool 
-isPerfect n
- |n < 1 = error "n was not natural"
- |otherwise = helper 1 
-  where
-      helper :: Int  -> Bool 
-      helper currentDivisor
-       | currentDivisor == n = False  --base -- currentDivisor
-       | n==sumDivs currentDivisor=True
-       | otherwise = helper (currentDivisor + 1) 
+isPerfect n = n == sumDivs n 
         
-        
--- problem in algorithm
+
