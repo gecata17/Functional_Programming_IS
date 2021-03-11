@@ -14,8 +14,8 @@ removeD d n
   where
        helper :: Int -> Int -> Int -> Int
        helper currentDigit n result
-        |n < 10 = result 
-        |currentDigit==div( 10)
-        |otherwise = currentDigit (n+1) (n*result)
+        |n < 10 = result  
+        |currentDigit==div( n 10)
+        |otherwise = helper currentDigit (div n currentDigit )  (result + mod n 10)
 
 --problem with the algorithm
