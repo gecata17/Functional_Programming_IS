@@ -13,14 +13,6 @@ sumDigitsRec n
  | otherwise = mod n 10 +sumDigitsRec (div n 10)
   
 isInteresting :: Int -> Bool
-isInteresting n
- |n < 0 = error "n was not positive"
- |n < 10 = True 
- |otherwise  = helper 1
-  where
-     helper :: Int-> Bool
-     helper currentDivisor
-       |mod n (sumDigitsRec currentDivisor) == 0 = True
-       |otherwise =helper (currentDivisor+1)
+isInteresting n = mod n(sumDigitsRec n)==0
 
- -- not sure what is missing to work for all cases
+ 
