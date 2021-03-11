@@ -16,7 +16,5 @@ isSquare n
   where
       helper ::Int -> Bool
       helper currentDivisor
-       |div n currentDivisor ==currentDivisor = True 
+       |div n currentDivisor >=currentDivisor = True 
        |otherwise = helper(currentDivisor +1)
-
--- problem with starting the program
