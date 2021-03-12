@@ -1,10 +1,10 @@
 main :: IO()
 main = do
-   
-    print $ truncatablePrime 37==True
-    print $ truncatablePrime 4678==False
-    print $ truncatablePrime 3797 ==True -- 3797, 379, 37 and 3 are all prime
-    print $ truncatablePrime 47 ==False-- 47 is prime, but 4 is not
+    print $ truncatablePrime 346 == False
+    print $ truncatablePrime 37 == True
+    print $ truncatablePrime 4678 == False
+    print $ truncatablePrime 3797 == True -- 3797, 379, 37 and 3 are all prime
+    print $ truncatablePrime 47 == False-- 47 is prime, but 4 is not
     print $ truncatablePrime (-5) 
     
 isPrime :: Int -> Bool
@@ -28,5 +28,5 @@ truncatablePrime n
       helper :: Int -> Bool
       helper n
        | n < 10 = isPrime n
-       |otherwise = isPrime n == helper (div n 10)
+       |otherwise = isPrime n && helper (div n 10)
        
