@@ -17,21 +17,29 @@ rev n
       |leftOver < 10 =result * 10 + leftOver
       |otherwise = helper (div leftOver 10) (result *10 + mod leftOver 10)
 
-isPrime :: Int -> Bool 
-isPrime 1 = False 
-isPrime n 
- | n < 1 = error "n was not natural" 
- | otherwise = helper 2 
-  where
-      helper :: Int -> Bool 
-      helper currentDivisor
-       | currentDivisor == n = True 
-       | mod n currentDivisor == 0 = False 
-       | otherwise = helper (currentDivisor + 1) 
+isPrime :: Int -> Int ->Bool 
+isPrime 1 2 = False 
+isPrime n counter
+ | n == counter = True 
+ |mod n counter == 0 = False 
+ | otherwise = isPrime n (counter +1) 
+
+numberDigits :: Int -> Int 
+numberDigits n 
+ |n < 10 = 1
+ | otherwise = 1 + numberDigits (div n 10)
+
 
 isSpecial :: Int -> Int -> Bool
-isSpecial num x
- | num == 0 = False 
- | rev (mod num 10) ==  x  = True
- |isPrime num && isPrime x = True
- | otherwise = isSpecial (div num 10) x
+isSpecial n k = helper ( rev $ abs n)
+ where 
+     helper n 
+      | numberDigits n == k == isPrime n 2
+      | otherwise = (isPrime (getK 0 0 $ rev n) 2) && helper (div n 10)
+     getK :: Int -> Int -> Int -> Int
+     getK result toTake leftOver
+      | toTake >= k = result
+      | otherwise = getK (result*10 + (mod leftOver 10)) (toTake + 1) (div leftOver 10)
+
+
+
