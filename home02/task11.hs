@@ -18,11 +18,9 @@ isPalindrome n = n == rev n
 
 
 countPalindromes :: Int -> Int -> Int 
-countPalindromes x y = helper 1 
+countPalindromes x y = helper ((min x y) +1) ((max x y ) +1)
  where
-     helper :: Int -> Int 
-     helper currentDivisor 
-      |min x y<(isPalindrome currentDivisor) && (isPalindrome currentDivisor)< max x y==currentDivisor + helper (currentDivisor+1) 
-      |otherwise = (currentDivisor + 1)
-      
--- not finished idea succesfully
+     helper start finish
+      |start >= finish = 0
+      |isPalindrome start= 1 + helper (start + 1) finish 
+      |otherwise = helper (start + 1) finish
