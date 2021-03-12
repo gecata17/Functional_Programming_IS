@@ -7,15 +7,17 @@ main = do
      print $ removeD 0 600 == 6
      print $ removeD 6 600 == 0
 
-removeD :: Int -> Int -> Int 
-removeD d n 
- |n < 1 = error "n was negative"
- |otherwise = helper d 1 result
-  where
-       helper :: Int -> Int -> Int -> Int
-       helper currentDigit n result
-        |n < 10 = result  
-        |currentDigit==div( n 10)
-        |otherwise = helper currentDigit (div n currentDigit )  (result + mod n 10)
+rev :: Int -> Int -> Int 
+rev num result 
+  |num == 0 =result
+  |otherwise = rev (div num 10) ((result*10) + (mod num 10) )
 
---problem with the algorithm
+removeD :: Int -> Int -> Int 
+removeD d n = rev (helper n 0) 0
+  where
+       helper :: Int -> Int -> Int 
+       helper number result
+        |number < 1 = result 
+        |mod number 10 == d = helper (div number 10) result
+        |otherwise = helper (div number 10 )  ((result *10) + (mod number 10))
+
