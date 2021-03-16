@@ -34,7 +34,7 @@ isSpecial :: Int -> Int -> Bool
 isSpecial n k = helper ( rev $ abs n)
  where 
      helper n 
-      | numberDigits n == k == isPrime n 2
+      | numberDigits n == k = isPrime n 2
       | otherwise = (isPrime (getK 0 0 $ rev n) 2) && helper (div n 10)
      getK :: Int -> Int -> Int -> Int
      getK result toTake leftOver
