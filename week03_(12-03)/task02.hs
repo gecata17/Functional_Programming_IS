@@ -6,6 +6,17 @@ main = do
     print $ calculateSum 1 11 == 12 
     print $ calculateSum 2 11 == 4095
 
+{-
+1. What is the name of the function? calculateSum
+2. How many arguments does it take? 2
+3. What is the data type of the arguments? Double, 
+4. What is the return type? 
+5. What are the names of the arguments? x n
+6. When should an error be returned? 
+7. List the steps that would solve the problem.
+-}
+
+
 calculateSum :: Double -> Double -> Double 
 calculateSum x 0 = 1
 calculateSum x n = helper n 1 
