@@ -4,6 +4,15 @@ main = do
     print $ findMax 14752 == 7 
     print $ findMax 329450 == 9 
     print $ findMax 9521 == 9
+{-
+14752 (test case)
+> helper leftOver=1475 currentMax=2
+> helper leftOver=147 currentMax=5
+> helper leftOver = 14 currentMax = 7
+> helper leftOver=1 currentMax = 7
+> helper leftOver=0 currentMax = 7
+> helper 0 7 = 7
+-}
 
 findMax :: Int->Int 
 findMax n
