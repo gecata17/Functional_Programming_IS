@@ -4,8 +4,8 @@ main = do
     print $ removeFirst 3 [5, 1, 5, 3, 5] == [5, 1, 5, 5]
 
 removeFirst :: Int -> [Int] -> [Int]
-removeFirst _ [] = []
-removeFirst d (x:xs)
+removeFirst _ [] = [] -- _ [] = []
+removeFirst d (x:xs)  -- access to the head as well as the tail
  | d == x = xs
  | otherwise = x : removeFirst d xs
 
